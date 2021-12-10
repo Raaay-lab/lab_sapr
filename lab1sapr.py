@@ -113,7 +113,6 @@ def main():
                     final += peremsDict.get(rrr) + '\n'
                 j += 1
         f.write(final)
-        print(peremsDict)
                 
             
 if __name__ == "__main__":

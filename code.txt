@@ -7,5 +7,5 @@ begin
     repeat
       Inc(ier3ew);
     until ( ier3ew >= 6 );
-  until ( ier3ew > n );
+  until ( ier3ew > n )
 end.
