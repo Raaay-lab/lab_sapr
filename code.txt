@@ -1,0 +1,11 @@
+var i, n: integer;
+begin
+  n := 10;
+  i := 1;
+  repeat
+    i := i + 1;
+    repeat
+    Inc(i);
+    until (i>=6);
+  until (i>n);
+end.
