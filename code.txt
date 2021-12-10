@@ -1,11 +1,11 @@
-var i, n: integer;
+var ier3ew, n: integer;
 begin
   n := 10;
-  i := 1;
+  ier3ew := 1;
   repeat
-    i := i + 1;
+    ier3ew := ier3ew + 1;
     repeat
-    Inc(i);
-    until (i>=6);
-  until (i>n);
+      Inc(ier3ew);
+    until ( ier3ew >= 6 );
+  until ( ier3ew > n );
 end.

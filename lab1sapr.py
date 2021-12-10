@@ -32,10 +32,25 @@ opersDict = {'+': '2.1',  # операции
              '.': '2.18',
              ',': '2.19',
              ':': '2.20'}
+peremsDict = {}
+num = 0
+
+def addingPerem(i,j):
+    p = ''
+    pc = j
+    global num
+    while(i[pc] not in opersDict.keys() and i[pc] != ' '):
+        p += i[pc]
+        pc += 1
+    if(p in peremsDict.keys()):
+        return p
+    num += 1
+    peremsDict[p] = '3.' + str(num)
+
+    return p
 
 def main():
 
-    peremsDict = {}
     code = list()
     with open("code.txt", "r") as f:
         v1 = f.readlines()
@@ -46,15 +61,13 @@ def main():
         code.append(list(i))
 
     final = ""
-    num = 0
-    temp = ''
+    rrr = ''
 
     with open('lab1sapr.txt', 'w') as f:
         for i in code:
             j = 0
             while j < len(i):
                 sub = ''
-                temp = i[j]
                 if i[j] == ' ':
                     pass
                 elif  i[j].isalpha():#проверка на ключевое слово
@@ -92,16 +105,15 @@ def main():
                         m += 1
                     final += sub + '\n'
                     j = m - 1
-                if sub in peremsDict.keys():#проверка на переменную
-                    final += peremsDict.get(sub) + '\n'
+
+                if sub != '' and not sub.isdigit():
+                    rrr = addingPerem(i,j)
+                    j += len(rrr) - 1
                     sub = ''
-                elif sub != '' and sub.isalpha():
-                    num += 1
-                    peremsDict[sub] = '3.' + str(num)
-                    final += peremsDict.get(sub) + '\n'
-                    sub = ''
+                    final += peremsDict.get(rrr) + '\n'
                 j += 1
         f.write(final)
+        print(peremsDict)
                 
             
 if __name__ == "__main__":
